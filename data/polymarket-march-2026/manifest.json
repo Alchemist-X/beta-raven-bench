@@ -1,0 +1,311 @@
+{
+  "schema_version": "raven.polymarket-past-pool.v1",
+  "selector_version": "2026-08-17.2",
+  "generated_at": "2026-08-17T08:02:49.289567Z",
+  "assumed_year": 2026,
+  "target_month": 3,
+  "availability_semantics": "tradable_at_any_time_during_march_assumed_from_accepting_orders_and_resolution_window",
+  "march_start_utc": "2026-03-01T00:00:00Z",
+  "march_end_exclusive_utc": "2026-04-01T00:00:00Z",
+  "may_status_cutoff_exclusive_utc": "2026-06-01T00:00:00Z",
+  "source": {
+    "gamma_endpoint": "https://gamma-api.polymarket.com/events/keyset",
+    "discovery_tags": {
+      "politics": 2,
+      "geopolitics": 100265,
+      "courts": 1628,
+      "ai": 439,
+      "science": 74,
+      "business": 107,
+      "economy": 100328,
+      "disease": 101894,
+      "climate_science": 103037,
+      "energy": 404,
+      "pop_culture": 596
+    },
+    "gamma_page_count": 88,
+    "raw_market_count": 31550,
+    "retrieval_is_current_view_not_historical_snapshot": true,
+    "clob_endpoint": "https://clob.polymarket.com/markets/{condition_id}"
+  },
+  "selection": {
+    "seed": "raven-polymarket-march-2026-v1",
+    "eligible_count": 5643,
+    "candidate_count": 600,
+    "selected_count": 300,
+    "candidate_domain_quotas": {
+      "politics_elections": 146,
+      "geopolitics_conflict": 151,
+      "law_regulation": 24,
+      "ai_technology": 70,
+      "science_space": 34,
+      "business_organizations": 26,
+      "macro_public_policy": 58,
+      "health_public_safety": 8,
+      "climate_environment": 32,
+      "energy_infrastructure": 0,
+      "culture_media": 68,
+      "sports": 0,
+      "other": 60
+    },
+    "candidate_status_targets": {
+      "resolved_by_may_end": 300,
+      "unresolved_at_may_end_but_later_settled": 300
+    },
+    "selected_domain_quotas": {
+      "politics_elections": 48,
+      "geopolitics_conflict": 72,
+      "law_regulation": 17,
+      "ai_technology": 44,
+      "science_space": 21,
+      "business_organizations": 16,
+      "macro_public_policy": 33,
+      "health_public_safety": 3,
+      "climate_environment": 23,
+      "energy_infrastructure": 0,
+      "culture_media": 32,
+      "sports": 0,
+      "other": 31
+    },
+    "selected_status_targets": {
+      "resolved_by_may_end": 150,
+      "unresolved_at_may_end_but_later_settled": 150
+    },
+    "candidate_cluster_cap": 2,
+    "selected_cluster_cap": 1,
+    "price_questions_excluded": true,
+    "manual_exclusion_count": 149,
+    "manual_exclusion_file": "config/polymarket_march_2026_manual_exclusions.json",
+    "human_review_complete": false
+  },
+  "candidate_stats": {
+    "count": 600,
+    "unique_event_clusters": 433,
+    "status": {
+      "resolved_by_may_end": 300,
+      "unresolved_at_may_end_but_later_settled": 300
+    },
+    "domains": {
+      "ai_technology": 70,
+      "business_organizations": 16,
+      "climate_environment": 23,
+      "culture_media": 44,
+      "geopolitics_conflict": 151,
+      "health_public_safety": 3,
+      "law_regulation": 17,
+      "macro_public_policy": 49,
+      "other": 60,
+      "politics_elections": 146,
+      "science_space": 21
+    },
+    "horizons": {
+      "31_to_60_days": 95,
+      "61_to_120_days": 171,
+      "7_to_30_days": 75,
+      "over_120_days": 230,
+      "under_7_days": 29
+    },
+    "temporal_archetypes": {
+      "conflict_transition": 109,
+      "cumulative_threshold": 4,
+      "election_or_appointment": 74,
+      "legal_or_regulatory_action": 39,
+      "other_event": 43,
+      "release_or_launch": 80,
+      "unscheduled_deadline_event": 251
+    },
+    "topic_families": {
+      "federal_reserve": 15,
+      "iran": 40,
+      "microstrategy": 8,
+      "openai_gpt": 12,
+      "pope_vatican": 1,
+      "russia_ukraine": 30,
+      "spacex_starship": 15,
+      "supreme_court": 7,
+      "trump_non_iran": 30
+    },
+    "mechanical_families": {
+      "central_bank_decision": 29,
+      "earthquake": 10,
+      "election_bucket": 27,
+      "leader_exit": 23,
+      "release_or_launch": 46
+    },
+    "difficulty": {
+      "hard": 327,
+      "medium": 273
+    },
+    "deadline_audit": {
+      "consistent_or_single_source": 526,
+      "mismatch_gt_3d": 74
+    },
+    "quality_score": {
+      "min": 60,
+      "max": 95,
+      "mean": 78.905
+    }
+  },
+  "selected_stats": {
+    "count": 300,
+    "unique_event_clusters": 300,
+    "status": {
+      "resolved_by_may_end": 150,
+      "unresolved_at_may_end_but_later_settled": 150
+    },
+    "domains": {
+      "ai_technology": 44,
+      "business_organizations": 12,
+      "climate_environment": 14,
+      "culture_media": 29,
+      "geopolitics_conflict": 72,
+      "health_public_safety": 2,
+      "law_regulation": 13,
+      "macro_public_policy": 24,
+      "other": 31,
+      "politics_elections": 48,
+      "science_space": 11
+    },
+    "horizons": {
+      "31_to_60_days": 54,
+      "61_to_120_days": 64,
+      "7_to_30_days": 33,
+      "over_120_days": 134,
+      "under_7_days": 15
+    },
+    "temporal_archetypes": {
+      "conflict_transition": 51,
+      "cumulative_threshold": 2,
+      "election_or_appointment": 7,
+      "legal_or_regulatory_action": 19,
+      "other_event": 16,
+      "release_or_launch": 45,
+      "unscheduled_deadline_event": 160
+    },
+    "topic_families": {
+      "federal_reserve": 6,
+      "iran": 16,
+      "microstrategy": 3,
+      "openai_gpt": 5,
+      "pope_vatican": 1,
+      "russia_ukraine": 12,
+      "spacex_starship": 6,
+      "supreme_court": 7,
+      "trump_non_iran": 12
+    },
+    "mechanical_families": {
+      "central_bank_decision": 12,
+      "earthquake": 4,
+      "election_bucket": 12,
+      "leader_exit": 12,
+      "release_or_launch": 28
+    },
+    "difficulty": {
+      "hard": 196,
+      "medium": 104
+    },
+    "deadline_audit": {
+      "consistent_or_single_source": 262,
+      "mismatch_gt_3d": 38
+    },
+    "quality_score": {
+      "min": 60,
+      "max": 95,
+      "mean": 79.767
+    }
+  },
+  "clob_verification": {
+    "verified": 300
+  },
+  "rejection_counts": {
+    "below_temporal_quality_floor": 17038,
+    "deadline_at_or_before_anchor": 17,
+    "deadline_before_march": 998,
+    "internally_inconsistent_resolution_criteria": 18,
+    "manual_multi_reviewer_exclusion": 122,
+    "missing_available_time": 1,
+    "missing_deadline": 201,
+    "non_self_contained_anonymous_option": 5649,
+    "not_available_by_march_end": 375,
+    "not_final_or_void": 8,
+    "not_yes_no": 92,
+    "price_related:asset_threshold": 455,
+    "price_related:currency_threshold": 513,
+    "price_related:explicit_price": 159,
+    "price_related:index_or_asset_settlement": 411,
+    "price_related:market_dependent_resolution": 18,
+    "price_related:net_worth_threshold": 27,
+    "price_related:odds_or_market_probability": 14,
+    "price_related:real_estate_value": 175,
+    "price_related:valuation": 277,
+    "routine_reporting_task_excluded": 294,
+    "short_horizon_election_margin_bucket": 49,
+    "sports_fixed_schedule_source_excluded": 104
+  },
+  "files": {
+    "README.md": {
+      "sha256": "75537b91b8406c1dc614e69117d625771e65418d0ad33095f6be6c01c69287a0",
+      "bytes": 6497
+    },
+    "agent_view/candidates_600/questions.json": {
+      "sha256": "34f3b1877913ef446b3622920e18efa0d7c4e6a3c33b727992eb9de59342044f",
+      "bytes": 1126925
+    },
+    "agent_view/candidates_600/questions.jsonl": {
+      "sha256": "f1f29d31f728477b6921ed1095fe41d9067e4269d37084f8b87dde1d6dfd0771",
+      "bytes": 1056722
+    },
+    "agent_view/selected_300/questions.json": {
+      "sha256": "d159900359fc0174982ba0a9ce175ca0e9bc708d74df8429db614ff4025cad63",
+      "bytes": 568366
+    },
+    "agent_view/selected_300/questions.jsonl": {
+      "sha256": "b79a075c7bef2073a920f6600d64f340ff7bd10397bbc146632a156386d9e8a4",
+      "bytes": 533263
+    },
+    "information_policy.json": {
+      "sha256": "7b4aedfbfb13062e6b09dffc84d63afcdd5dc7402d09a2502ca38c5dc87bdde5",
+      "bytes": 772
+    },
+    "private/candidates_600/labels_sealed.jsonl": {
+      "sha256": "76f0c73e52b29b4b7cf6d544101b1fd115bdfc5fda2cb530ca471e629e750336",
+      "bytes": 347126
+    },
+    "private/candidates_600/provenance_private.jsonl": {
+      "sha256": "1f95814283d96d5385b60bacecb9d2429c6d56087299d0c9080c98d182c6a351",
+      "bytes": 1139809
+    },
+    "private/candidates_600/status_snapshots.jsonl": {
+      "sha256": "528b01e3488bebd057fcf6575d4a89d7440aefdb867e9b07394bf5f89db9f625",
+      "bytes": 195607
+    },
+    "private/id_secret.hex": {
+      "sha256": "69da58c1d9976a23c9a3f4d16403a048f1829ae9e4d5d397502ea72f86918c5e",
+      "bytes": 65
+    },
+    "private/raw/gamma_markets.jsonl": {
+      "sha256": "88dadc53c0cf6508f03417de69d6561d4e13bb71bce0882f410a40752084df2b",
+      "bytes": 273829282
+    },
+    "private/raw/gamma_pages.jsonl": {
+      "sha256": "af19917d6aff5f32d4ab4c36f8aa662d67108de94dce30ad65d3dbda8e91ad02",
+      "bytes": 70471
+    },
+    "private/screening_rejections.jsonl": {
+      "sha256": "fde856be64d432eb657de704d2cdce4d7193d5458d6102c0fdd8d480193850a8",
+      "bytes": 2059367
+    },
+    "private/selected_300/labels_sealed.jsonl": {
+      "sha256": "fc54ae8c275e1e4eb95b774f9860adf4f2df7c174631888edcaf816c47e73cc8",
+      "bytes": 227933
+    },
+    "private/selected_300/provenance_private.jsonl": {
+      "sha256": "c6d547109c2ea0c35944c43a42bf3eab0f09b6f63a731e88dcb6aaec8fd99ebc",
+      "bytes": 567806
+    },
+    "private/selected_300/status_snapshots.jsonl": {
+      "sha256": "0bb742669abd0187bc7af45a2f816d4d0eb6b4a29f60442b53578ad00b0ccd98",
+      "bytes": 97800
+    }
+  }
+}

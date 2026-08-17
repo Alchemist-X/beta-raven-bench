@@ -1,0 +1,28 @@
+{
+  "schema_version": "raven.frozen-information-policy.v1",
+  "agent_mount_allowlist": [
+    "agent_view/candidates_600/questions.json",
+    "agent_view/candidates_600/questions.jsonl",
+    "agent_view/selected_300/questions.json",
+    "agent_view/selected_300/questions.jsonl"
+  ],
+  "deny_path_prefixes": [
+    "private/"
+  ],
+  "retrieval_mode": "frozen_corpus_only",
+  "deny_live_internet": true,
+  "enforce_document_crawl_time_lte_task_forecast_anchor": true,
+  "blocked_domains": [
+    "polymarket.com",
+    "gamma-api.polymarket.com",
+    "clob.polymarket.com",
+    "manifold.markets",
+    "kalshi.com"
+  ],
+  "blocked_content_classes": [
+    "prediction_market_pages",
+    "market_odds_or_prices",
+    "benchmark_private_labels",
+    "post_anchor_documents"
+  ]
+}

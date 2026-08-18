@@ -244,8 +244,8 @@
   },
   "files": {
     "README.md": {
-      "sha256": "75537b91b8406c1dc614e69117d625771e65418d0ad33095f6be6c01c69287a0",
-      "bytes": 6497
+      "sha256": "e4aee854f2e277ed555f3cbe55d8b24e7faa8fa4f29cb9483505be8eda628248",
+      "bytes": 6574
     },
     "agent_view/candidates_600/questions.json": {
       "sha256": "34f3b1877913ef446b3622920e18efa0d7c4e6a3c33b727992eb9de59342044f",
@@ -264,8 +264,8 @@
       "bytes": 533263
     },
     "information_policy.json": {
-      "sha256": "7b4aedfbfb13062e6b09dffc84d63afcdd5dc7402d09a2502ca38c5dc87bdde5",
-      "bytes": 772
+      "sha256": "715609e2d5f4b2749382c40a47488d9bf4b745e3c32e641ff090b244bab0ec53",
+      "bytes": 841
     },
     "private/candidates_600/labels_sealed.jsonl": {
       "sha256": "76f0c73e52b29b4b7cf6d544101b1fd115bdfc5fda2cb530ca471e629e750336",

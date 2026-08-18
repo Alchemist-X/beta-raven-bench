@@ -1535,6 +1535,7 @@ under `private/`.
 - `agent_view/candidates_600/questions.json`: FutureX-compatible candidate input.
 - `agent_view/selected_300/questions.json`: final FutureX-compatible agent input.
 - `private/*/labels_sealed.jsonl`: final answers and May checkpoint state; never expose to the agent.
+  Published in encrypted form only, at the repository root under `answers/`.
 - `private/*/provenance_private.jsonl`: source IDs/URLs, deadline audit, and selection scores.
 - `private/*/status_snapshots.jsonl`: anchor, May-end, and final status records.
 - `private/raw/gamma_markets.jsonl`: current Gamma API source view, including outcome-bearing fields.
@@ -1714,7 +1715,10 @@ def main() -> None:
                 "agent_view/selected_300/questions.json",
                 "agent_view/selected_300/questions.jsonl",
             ],
-            "deny_path_prefixes": ["private/"],
+            # The published answer bundle lives at the repository root, outside this
+            # dataset tree. Both spellings are listed so a mount check catches it
+            # whether prefixes are resolved against the repo or the dataset root.
+            "deny_path_prefixes": ["private/", "answers/", "../../answers/"],
             "retrieval_mode": "frozen_corpus_only",
             "deny_live_internet": True,
             "enforce_document_crawl_time_lte_task_forecast_anchor": True,
@@ -1729,6 +1733,7 @@ def main() -> None:
                 "prediction_market_pages",
                 "market_odds_or_prices",
                 "benchmark_private_labels",
+                "encrypted_answer_bundle",
                 "post_anchor_documents",
             ],
         },

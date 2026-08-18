@@ -33,6 +33,7 @@ intentionally absent from the public Git history.
 - `agent_view/candidates_600/questions.json`: FutureX-compatible candidate input.
 - `agent_view/selected_300/questions.json`: final FutureX-compatible agent input.
 - `private/*/labels_sealed.jsonl`: final answers and May checkpoint state; never expose to the agent.
+  Published in encrypted form only, at the repository root under `answers/`.
 - `private/*/provenance_private.jsonl`: source IDs/URLs, deadline audit, and selection scores.
 - `private/*/status_snapshots.jsonl`: anchor, May-end, and final status records.
 - `private/raw/gamma_markets.jsonl`: current Gamma API source view, including outcome-bearing fields.

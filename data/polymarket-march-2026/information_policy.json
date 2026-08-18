@@ -7,7 +7,9 @@
     "agent_view/selected_300/questions.jsonl"
   ],
   "deny_path_prefixes": [
-    "private/"
+    "private/",
+    "answers/",
+    "../../answers/"
   ],
   "retrieval_mode": "frozen_corpus_only",
   "deny_live_internet": true,
@@ -23,6 +25,7 @@
     "prediction_market_pages",
     "market_odds_or_prices",
     "benchmark_private_labels",
+    "encrypted_answer_bundle",
     "post_anchor_documents"
   ]
 }

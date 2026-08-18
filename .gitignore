@@ -8,3 +8,10 @@ __pycache__/
 # aggregate manifests, selection code, and documentation.
 data/**/private/
 
+# Decrypted answer key. answers/ ships the ciphertext, its checksum and its data
+# card only; cleartext ground truth must never enter Git history.
+answers/*/
+answers/*.jsonl
+answers/*.tar.gz
+answers/*.txt
+*labels_sealed*

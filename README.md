@@ -18,9 +18,55 @@ Polymarket 中选取在 **2026 年 3 月任意时刻可交易**、并且目前�
 | [`build_polymarket_past_pool.py`](scripts/build_polymarket_past_pool.py) | 数据采集、标准化、筛选、分层抽样和导出实现 |
 | [`validate_polymarket_past_pool.py`](scripts/validate_polymarket_past_pool.py) | public/full 两种校验模式 |
 | [`manual_exclusions.json`](config/polymarket_march_2026_manual_exclusions.json) | 多轮审计形成的显式排除清单 |
+| [`answers/`](answers/) | **答案**：加密后的最终 Yes/No 结果，放在仓库最外层 |
+| [`decrypt_answers.sh`](scripts/decrypt_answers.sh) | 答案解密脚本，口令交互式输入 |
 
-公开仓库**不包含** 261MB Gamma raw 数据、sealed labels、源市场映射、筛选拒绝明细
-和 ID 派生密钥。它们属于本地 operator 数据，不应进入 agent 可访问的仓库。
+题目在 `data/polymarket-march-2026/agent_view/`，答案在仓库最外层的 `answers/`，
+两者物理分离：挂载题目目录不可能连带挂到答案。
+
+公开仓库**不包含** 261MB Gamma raw 数据、源市场映射（`provenance_private.jsonl`）、
+筛选拒绝明细和 ID 派生密钥。它们属于本地 operator 数据，不应进入 agent 可访问的仓库。
+
+## 答案
+
+答案在仓库最外层的 [`answers/`](answers/)，与 `data/` 下的题目刻意分开放，
+用 AES-256 加密发布。详细说明见 [`answers/README.md`](answers/README.md)。
+
+### 要测试的话，不要下载答案
+
+题目本身没有秘密，这套题集唯一的泄漏点就是最终 Yes/No 结果。
+明文答案一旦进入工作目录、检索语料、prompt、日志或 CI 缓存，这一轮分数就不再可信，
+而且事后无法判断污染了多少。**跑评测时请不要下载、不要解密 `answers/`。**
+
+只克隆题目、让密文根本不落地：
+
+```bash
+git clone --filter=blob:none --sparse git@github.com:Alchemist-X/beta-raven-bench.git
+cd beta-raven-bench
+git sparse-checkout set data docs scripts config
+```
+
+跑分和打分请分成两步、两个进程、两个目录：跑分进程永远看不到 `answers/`。
+
+### 口令
+
+答案包用口令加密（AES-256-CBC + PBKDF2-HMAC-SHA256，600000 次迭代，随机 salt）。
+
+**口令不在本仓库任何位置**——不在 README、脚本、commit message、issue 或 release notes 里，
+只通过私下渠道传达。需要打分的人请直接向维护者索取，拿到后也请照此处理，
+不要写进公开的 issue、PR、评测报告或聊天截图。
+
+拿到口令后解密到仓库之外的目录：
+
+```bash
+./scripts/decrypt_answers.sh ~/raven-answers
+```
+
+脚本会先校验密文哈希，交互式读取口令（不回显、不进 shell history），
+解密后再核对明文哈希，并拒绝把明文写进本仓库。
+
+这不是强安全边界：口令是共享秘密，密文是公开文件，拿到口令就拿到了全部答案。
+它防的是**意外污染**，不是**蓄意作弊**。需要防作弊的正式排行榜应当改为服务端打分、不下发答案。
 
 ## 时间定义
 
@@ -129,7 +175,8 @@ Polymarket 中选取在 **2026 年 3 月任意时刻可交易**、并且目前�
 - 使用冻结 corpus，不开放实时互联网；
 - 强制 `document.crawl_time <= forecast_anchor`；
 - 屏蔽 Polymarket、Gamma、CLOB、Kalshi、Manifold 等预测市场来源；
-- 不向 agent 暴露 labels、provenance、market IDs 或 post-anchor 文档。
+- 不向 agent 暴露 labels、provenance、market IDs 或 post-anchor 文档；
+- 不把 `answers/`（密文或解密后的明文）放进任何 agent 可读路径。
 
 完整约束见 [`information_policy.json`](data/polymarket-march-2026/information_policy.json)。
 
@@ -156,5 +203,6 @@ python3 scripts/validate_polymarket_past_pool.py --public-only
 - Gamma 是当前数据库视图，不是 2026 年 3 月的规则文本历史快照。
 - 38/300 题的题面截止时间与 Gamma `endDate` 相差超过三天，需要最终人工裁定。
 - `human_review_complete=false`；当前分数和难度是可复现启发式，不等同于双人盲审。
-- 公开 manifest 会保留未发布 operator 文件的路径、大小和哈希收据，但不会公开内容。
+- 公开 manifest 会保留未发布 operator 文件的路径、大小和哈希收据，但不会公开内容；
+  其中 `private/*/labels_sealed.jsonl` 的收据可用来校验 `answers/` 解密后的明文。
 
